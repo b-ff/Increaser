@@ -4,7 +4,7 @@
 
 (function($){
 
-    jQuery.fn.increaser = function(speed){
+    $.fn.increaser = function(speed){
 
         // Если скорость изменения значения не задана - устанавливаем дефолтные 600
     	if (typeof speed == "undefined") { speed = 600; }
@@ -20,8 +20,8 @@
         // Обрабатываем каждый элемент
         this.each(function() {
 
-	        var isSpaced = jQuery(this).text().match(' ') != null; // (bool) разделено ли число пробелами
-	        var value = (isSpaced) ? jQuery(this).text().replace(' ', '') : jQuery(this).text(); // (int) Число без разделителей разрядов
+	        var isSpaced = $(this).text().match(' ') != null; // (bool) разделено ли число пробелами
+	        var value = (isSpaced) ? $(this).text().replace(' ', '') : $(this).text(); // (int) Число без разделителей разрядов
 
             // Сохраняем параметры текущего элемента в виде объекта в массиве элементов с которыми будем работать
 	        Increaser.elements[Increaser.elements.length] = {
@@ -33,7 +33,7 @@
 	        }
 
             // Пишем в элемент "0"
-	        jQuery(this).text(0);
+	        $(this).text(0);
 
         });
 
@@ -71,7 +71,7 @@
         		}
 
                 // Пишем результат в элемент на странице
-        		jQuery(Increaser.elements[i].node).text(currentValue);
+        		$(Increaser.elements[i].node).text(currentValue);
 
 
         	};
